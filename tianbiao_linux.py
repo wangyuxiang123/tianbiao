@@ -4,10 +4,7 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import os
 
-# stuID = os.environ.get('STUID', '').split('\n')
-stuID = os.environ["STUID"]
-print(stuID)
-
+stuID = os.environ.get('STUID', '').split('\n')
 
 chrome_options = Options()  # 无界面对象
 chrome_options.add_argument('--headless')  # 浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败
