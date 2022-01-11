@@ -4,7 +4,7 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import os
 
-stuID = os.environ["stuID"]
+stuID = os.environ.get('stuID', '').split('\n')
 print(stuID)
 
 chrome_options = Options()  # 无界面对象
