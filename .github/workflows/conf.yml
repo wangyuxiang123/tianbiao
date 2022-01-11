@@ -38,7 +38,7 @@ jobs:
         env:
           stuID: ${{secrets.stuIDs}}
         run: |
-          sudo cp -p ./chrome/chromedriver /usr/bin/
+          sudo cp -p ./chromedriver /usr/bin/
           chmod -R 777 /usr/bin/chromedriver
           pip config set global.index-url https：//pypi.tuna.tsinghua.edu.cn/simple/
           python -m pip install --upgrade pip
