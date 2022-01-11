@@ -7,7 +7,7 @@ import os
 # stuID = os.environ.get('STUID', '').split('\n')
 stuID = os.environ["STUID"]
 print(stuID)
-pass
+
 
 chrome_options = Options()  # 无界面对象
 chrome_options.add_argument('--headless')  # 浏览器不提供可视化页面. linux下如果系统不支持可视化不加这条会启动失败
