@@ -8,7 +8,7 @@ stuID = []
 
 if os.environ.get('GITHUB_RUN_ID', None):
     try:
-        stuID = os.environ.get('stuIDs', '').split('\n')
+        stuID = os.environ.get('stuID', '').split('\n')
     except Exception as e:
         print(str(e))
 
