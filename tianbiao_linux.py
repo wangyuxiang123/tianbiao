@@ -4,6 +4,8 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import os
 
+stuID = []
+
 stuID = os.environ.get('stuID', '').split('\n')
 print(stuID)
 
