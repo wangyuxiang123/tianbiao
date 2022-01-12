@@ -25,26 +25,22 @@ driver = webdriver.Chrome(
     options=chrome_options,
     service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
 
-try:
-    for i in stuID:
-        url = 'http://dw10.fdzcxy.edu.cn/datawarn/ReportServer?formlet=app/sjkrb.frm&op=h5&userno=' + i + '#/form'
-        driver.get(url)  # 打开浏览器
-        time.sleep(2)
+for i in stuID:
+    url = 'http://dw10.fdzcxy.edu.cn/datawarn/ReportServer?formlet=app/sjkrb.frm&op=h5&userno=' + i + '#/form'
+    driver.get(url)  # 打开浏览器
+    time.sleep(2)
 
-        # 滚动到底部
-        target = driver.find_element_by_xpath('//*[@id="LABEL7"]/div[2]/div')
-        driver.execute_script("arguments[0].scrollIntoView();", target)
-        time.sleep(1)
-        # 确认
-        driver.find_element_by_xpath('//*[@id="CHECK"]/div[2]/div[2]/input').click()
-        time.sleep(1)
-        # 点击提交
-        driver.find_element_by_xpath('//*[@id="SUBMIT"]/div[2]').click()
-        time.sleep(1)
-        print("学号:{},打卡成功".format(i))
+    # 滚动到底部
+    target = driver.find_element_by_xpath('//*[@id="LABEL7"]/div[2]/div')
+    driver.execute_script("arguments[0].scrollIntoView();", target)
+    time.sleep(1)
+    # 确认
+    driver.find_element_by_xpath('//*[@id="CHECK"]/div[2]/div[2]/input').click()
+    time.sleep(1)
+    # 点击提交
+    driver.find_element_by_xpath('//*[@id="SUBMIT"]/div[2]').click()
+    time.sleep(1)
+    print("学号:{},打卡成功".format(i))
 
-    print("打卡完成")
-    driver.quit()
-
-except Exception as e:
-    print(e)
+print("打卡完成")
+driver.quit()
