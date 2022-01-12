@@ -4,6 +4,7 @@ import time
 from webdriver_manager.chrome import ChromeDriverManager
 import os
 import datetime
+import requests
 
 curr_time = datetime.datetime.now()
 time_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d %H:%M:%S')
@@ -25,8 +26,13 @@ driver = webdriver.Chrome(
     options=chrome_options,
     service_args=['--ignore-ssl-errors=true', '--ssl-protocol=TLSv1'])
 
+
 for i in stuID:
     url = 'http://dw10.fdzcxy.edu.cn/datawarn/ReportServer?formlet=app/sjkrb.frm&op=h5&userno=' + i + '#/form'
+    re = requests.get(url)
+    print(re)
+
+
     driver.get(url)  # 打开浏览器
     time.sleep(2)
 
