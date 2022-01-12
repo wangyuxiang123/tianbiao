@@ -32,18 +32,18 @@ for i in stuID:
     print(re)
 
     driver.get(url)  # 打开浏览器
-    time.sleep(2)
+    driver.implicitly_wait(10)
 
     # 滚动到底部
     target = driver.find_element_by_xpath('//*[@id="LABEL7"]/div[2]/div')
     driver.execute_script("arguments[0].scrollIntoView();", target)
-    time.sleep(2)
+    time.sleep(1)
     # 确认
     driver.find_element_by_xpath('//*[@id="CHECK"]/div[2]/div[2]/input').click()
-    time.sleep(2)
+    time.sleep(1)
     # 点击提交
     driver.find_element_by_xpath('//*[@id="SUBMIT"]/div[2]').click()
-    time.sleep(2)
+    time.sleep(1)
     print("学号:{},打卡成功".format(i))
 
 print("打卡完成")
