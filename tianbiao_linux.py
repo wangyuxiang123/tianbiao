@@ -3,6 +3,12 @@ from selenium.webdriver.chrome.options import Options  # 无GUI
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 import os
+import datetime
+
+curr_time = datetime.datetime.now()
+time_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d %H:%M:%S')
+# 显示计算机当前时间
+print("打卡开始时间：{}".format(time_str))
 
 stuID = os.environ.get('STUID', '').split('\n')
 
