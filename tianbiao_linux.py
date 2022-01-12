@@ -6,10 +6,10 @@ import os
 import datetime
 import requests
 
-curr_time = datetime.datetime.now()
-time_str = datetime.datetime.strftime(curr_time, '%Y-%m-%d %H:%M:%S')
+start_time = datetime.datetime.now()
+time_str_start = datetime.datetime.strftime(start_time, '%Y-%m-%d %H:%M:%S')
 # 显示计算机当前时间
-print("打卡开始时间：{}".format(time_str))
+print("打卡开始时间：{}".format(time_str_start))
 
 stuID = os.environ.get('STUID', '').split('\n')
 
@@ -46,5 +46,10 @@ for i in stuID:
     time.sleep(1)
     print("学号:{},打卡成功".format(i))
 
-print("打卡完成")
+end_time = datetime.datetime.now()
+time_str_end = datetime.datetime.strftime(end_time, '%Y-%m-%d %H:%M:%S')
+
+times = end_time - start_time
+
+print("打卡结束时间：{},共用时{},打卡完成".format(time_str_end, times))
 driver.quit()
