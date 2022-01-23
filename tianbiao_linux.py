@@ -54,11 +54,10 @@ driver = webdriver.Chrome(
 
 # 如果失败,重试5次
 while flag != 1 | try_time != 5:
-    try_time = try_time + 1
-    print("第{}次执行".format(try_time))
     try:
+        try_time = try_time + 1
+        print("第{}次执行:".format(try_time))
         flag = tian(stuID)
-        print("flag = {}".format(flag))
     except Exception as e:
         print(e)
 
@@ -67,5 +66,5 @@ time_str_end = datetime.datetime.strftime(end_time, '%Y-%m-%d %H:%M:%S')
 
 times = end_time - start_time
 
-print("打卡结束时间：{},共用时{},打卡完成".format(time_str_end, times))
+print("打卡结束时间：{},共用时{}".format(time_str_end, times))
 driver.quit()
