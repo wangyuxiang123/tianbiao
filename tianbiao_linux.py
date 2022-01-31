@@ -17,6 +17,7 @@ stuID = os.environ.get('STUID', '').split('\n')
 
 
 def tian(stuID):
+    j = 1
     for i in stuID:
         url = 'http://dw10.fdzcxy.edu.cn/datawarn/ReportServer?formlet=app/sjkrb.frm&op=h5&userno=' + i + '#/form'
         re = requests.get(url)
@@ -35,7 +36,8 @@ def tian(stuID):
         # 点击提交
         driver.find_element_by_xpath('//*[@id="SUBMIT"]/div[2]').click()
         time.sleep(1)
-        print("学号:{},打卡成功".format(i))
+        print("第{}个,学号:{},打卡成功".format(j, i))
+        j = j + 1
     return 1
 
 
